@@ -1,6 +1,9 @@
 ﻿//
 // VAR - 62, Kivlyuk Yuriy IPZ-41
 //
+using System.Collections.Generic;
+using System.Numerics;
+
 class Program
 {
     const string INPUT_FILE = "../../../input.txt";
@@ -29,15 +32,16 @@ class Program
         }
     }
 
-    static void GetSequence(int start, int end, int depth, List<int> sequence)
+    static BigInteger GetSequenceSum(int start, int end, int depth, BigInteger sum)
     {
         if (depth == 0)
         {
-            sequence.Add(start);
-            return;
+            return sum + start;
         }
-        GetSequence(start, start + end, depth - 1, sequence);
-        GetSequence(start + end, start, depth - 1, sequence);
+        sum = GetSequenceSum(start, start + end, depth - 1, sum);
+        sum = GetSequenceSum(start + end, end, depth - 1, sum);
+
+        return sum;
     }
 
     static void Main()
@@ -46,11 +50,9 @@ class Program
         if (depth == -1) return;
         Console.WriteLine("Depth: " + depth);
 
-        List<int> sequence = new List<int>();
-        GetSequence(1, 1, depth, sequence);
+        BigInteger sum = GetSequenceSum(1, 1, depth, 0) + 1;
 
-        int sequenceSum = sequence.Sum() + 1;
-        Console.WriteLine("Sum: " + sequenceSum);
-        File.WriteAllText(OUTPUT_FILE, sequenceSum.ToString());
+        Console.WriteLine("Sum: " + sum);
+        File.WriteAllText(OUTPUT_FILE, sum.ToString());        
     }
 }

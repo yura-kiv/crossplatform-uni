@@ -72,9 +72,7 @@ class Program
 
         str1 = str1.Remove(index);
 
-        Console.Write(str1);
-        Console.Write(str2);
-
+        Console.WriteLine("Result present sign: " + str1 + str2);
         return str1 + str2;
     }
 
@@ -100,17 +98,17 @@ class Program
                     if (CheckStrInStr(name1Lower, name2Lower) == 1 || CheckStrInStr(name2Lower, name1Lower) == 1)
                         return;
 
-                    int i1 = CalcStrInStr(name1Lower, name2Lower);
-                    int i2 = CalcStrInStr(name2Lower, name1Lower);
+                    int index1 = CalcStrInStr(name1Lower, name2Lower);
+                    int index2 = CalcStrInStr(name2Lower, name1Lower);
 
-                    if (i1 < i2)
+                    if (index1 < index2)
                     {
-                        string result = GetResult(name1Lower, name2Lower, i1);
+                        string result = GetResult(name1Lower, name2Lower, index1);
                         writer.Write(result);
                     }
                     else
                     {
-                        string result = GetResult(name2Lower, name1Lower, i2);
+                        string result = GetResult(name2Lower, name1Lower, index2);
                         writer.Write(result);
                     }
                 }
