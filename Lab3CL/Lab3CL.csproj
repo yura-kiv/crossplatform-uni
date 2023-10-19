@@ -3,7 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Nullable>enable</Nullable>
+	<Authors>Kivlyuk Yuriy</Authors>
+	<PackageId>YKivlyuk</PackageId>
+	<Version>1.0.2</Version>
   </PropertyGroup>
 
 </Project>
