@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lab3CL" Version="1.0.1" />
     <PackageReference Include="YKivlyuk" Version="1.0.2" />
   </ItemGroup>
 

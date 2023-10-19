@@ -1,0 +1,28 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "geerlingguy/macos-10.15"
+  config.vm.network "forwarded_port", guest: 80, host: 5000
+  config.vm.box_download_insecure = true
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.memory = 2048
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    brew update
+    brew install wget
+
+    # Install the .NET SDK
+    wget https://packages.microsoft.com/config/homebrew/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+    dpkg -i packages-microsoft-prod.deb
+    brew update
+    brew install --cask dotnet-sdk
+
+    echo 'export PATH=$PATH:$HOME/.dotnet/tools' >> /Users/vagrant/.bash_profile
+    # Add your NuGet package source
+    su - vagrant -c "dotnet nuget add source -n YKivlyuk http://192.168.0.1:5000/nuget/v3/index.json"
+
+    # Install your custom NuGet package
+    su - vagrant -c "dotnet tool install -g YKivlyuk --version 1.0.0 --ignore-failed-sources"
+  SHELL
+end

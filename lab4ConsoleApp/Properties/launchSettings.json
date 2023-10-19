@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "lab4ConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "run lab2",
+      "environmentVariables": {
+        "LAB_PATH": "./answer/"
+      }
+    }
+  }
+}
