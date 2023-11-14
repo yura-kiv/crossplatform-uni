@@ -1,28 +1,18 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "geerlingguy/macos-10.15"
-  config.vm.network "forwarded_port", guest: 80, host: 5000
-  config.vm.box_download_insecure = true
+    config.vm.box = "tas50/macos_10.15"
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.gui = false
-    vb.memory = 2048
-  end
+    config.vm.provider "virtualbox" do |vb|
+        vb.memory = "4096"
+    end
 
-  config.vm.provision "shell", inline: <<-SHELL
-    brew update
-    brew install wget
+    config.vm.provision "shell", inline: <<-SHELL
+    curl "https://download.visualstudio.microsoft.com/download/pr/3b305e51-67fb-47cf-a916-700e62148324/1b71cd10822a3a1805008e212157a178/dotnet-sdk-6.0.416-osx-x64.pkg" \
+    -o dotnet_installer.pkg
+    sudo installer -pkg dotnet_installer.pkg -target /
+    sudo mkdir -p -m 775 /usr/local/bin
+    sudo ln -s /usr/local/share/dotnet/dotnet /usr/local/bin/
+    dotnet tool install --tool-path /usr/local/share --version 1.0.0 --add-source http://192.168.0.103:5000/v3/index.json --no-cache ykivlyuk
+    sudo ln -s /usr/local/share/ykivlyuk /usr/local/bin/
+    SHELL
 
-    # Install the .NET SDK
-    wget https://packages.microsoft.com/config/homebrew/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-    dpkg -i packages-microsoft-prod.deb
-    brew update
-    brew install --cask dotnet-sdk
-
-    echo 'export PATH=$PATH:$HOME/.dotnet/tools' >> /Users/vagrant/.bash_profile
-    # Add your NuGet package source
-    su - vagrant -c "dotnet nuget add source -n YKivlyuk http://192.168.0.1:5000/nuget/v3/index.json"
-
-    # Install your custom NuGet package
-    su - vagrant -c "dotnet tool install -g YKivlyuk --version 1.0.0 --ignore-failed-sources"
-  SHELL
 end
