@@ -1,0 +1,32 @@
+﻿@model Lab5WebApp.Models.LabDataModel
+
+<div style="margin-top:80px">
+    <h2>Лабораторна робота 1</h2>
+    <h3>Завдання:</h3>
+    <p>
+        Марсіяни Мишко та Маша вирішили разом підібрати подарунок на день народження Каті. Коли вони нарешті знайшли те, що хотіли, та запакували предмет у гарну коробку, треба було вирішити, як підписати подарунок. Друзі подумали, що найкращим рішенням буде скласти загальний підпис так, щоб у ньому як підрядки містилися їхні імена.
+        Майте на увазі, що на Марсі прийнято підписуватися повними іменами, а вони у марсіан можуть бути досить довгими.
+    </p>
+    <div>
+        <h4>Приклад вхідних данних:</h4>
+<pre>
+Julya
+Lyalya</pre>
+        <h4>Приклад данних після роботи програми:</h4>
+        <pre>JuLyalya</pre>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" asp-controller="Lab1" asp-action="Lab1">
+        <div class="row">
+            <div class="form-group container mt-2">
+                <h4>Вхідні дані (шлях):</h4>
+                <input id="inputText" class="form-control" type="text" asp-for="Input"></input>
+                <h4>Вихадні дані (шлях):</h4>
+                <input id="inputText" class="form-control" type="text" asp-for="Output"></input>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Виконати</button>
+    </form>
+    
+</div>

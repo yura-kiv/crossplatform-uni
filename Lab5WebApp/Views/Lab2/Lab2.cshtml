@@ -1,0 +1,57 @@
+﻿@model Lab5WebApp.Models.LabDataModel
+
+<div style="margin-top:80px">
+    <h2>Лабораторна робота 2</h2>
+    <h3>Завдання:</h3>
+    <p>
+        Розглянемо числову послідовність, що спочатку складається з двох одиниць: 1, 1.
+        Далі на кожному наступному кроці вставлятимемо між сусідніми елементами їх суму. У прикладі елементи, що додаються, виділені:
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Номер кроку</th>
+                <th scope="col">Послідовність</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">0</th>
+                <td>1, 1</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>1, 2, 1</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td >1, 3, 2, 3, 1</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>1, 4, 3, 5, 2, 5, 3, 4, 1</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Потрібно написати програму, яка підрахує суму членів послідовності, побудованої за K кроків.</p>
+    <div>
+        <h4>Приклад вхідних данних:</h4>
+        <pre>10</pre>
+        <h4>Приклад данних після роботи програми:</h4>
+        <pre>59050</pre>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" asp-controller="Lab2" asp-action="Lab2">
+        <div class="row">
+            <div class="form-group container mt-2">
+                <h4>Вхідні дані (шлях):</h4>
+                <input id="inputText" class="form-control" type="text" asp-for="Input"></input>
+                <h4>Вихідні дані (шлях):</h4>
+                <input id="inputText" class="form-control" type="text" asp-for="Output"></input>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Виконати</button>
+    </form>
+    
+</div>
