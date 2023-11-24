@@ -26,4 +26,9 @@
     <ProjectReference Include="..\Lab5CL\Lab5CL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FilesExample\Lab1\" />
+    <Folder Include="Vagrant\" />
+  </ItemGroup>
+
 </Project>
