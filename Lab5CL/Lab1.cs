@@ -77,7 +77,7 @@ namespace Lab5CL
             return str1 + str2;
         }
 
-        public void Run(string inputFile, string outputFile)
+        public string Run(string inputFile, string outputFile)
         {
             try
             {
@@ -89,13 +89,13 @@ namespace Lab5CL
                         string name2 = reader.ReadLine();
 
                         if (!IsValidInput(name1) || !IsValidInput(name2))
-                            return;
+                            return "Input information is not valid!";
                         
                         string name1Lower = name1.ToLower();
                         string name2Lower = name2.ToLower();
 
                         if (CheckStrInStr(name1Lower, name2Lower) == 1 || CheckStrInStr(name2Lower, name1Lower) == 1)
-                            return;
+                            return "Some problem to read infaromation for the task!";
 
                         int index1 = CalcStrInStr(name1Lower, name2Lower);
                         int index2 = CalcStrInStr(name2Lower, name1Lower);
@@ -104,18 +104,20 @@ namespace Lab5CL
                         {
                             string result = GetResult(name1Lower, name2Lower, index1);
                             writer.Write(result);
+                            return result;
                         }
                         else
                         {
                             string result = GetResult(name2Lower, name1Lower, index2);
                             writer.Write(result);
+                            return result;
                         }
                     }
                 }
             }
             catch
             {
-                Console.WriteLine("There was a problem reading the file..");
+                return "There was a problem reading the file...";
             }
         }
     }

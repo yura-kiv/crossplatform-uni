@@ -39,7 +39,7 @@ namespace Lab5CL
             return value.Substring(0, value.Length - 1);
         }
 
-        public void Run(string inputFile, string outputFile)
+        public string Run(string inputFile, string outputFile)
         {
             string[] inputLine = null;
             try
@@ -48,16 +48,13 @@ namespace Lab5CL
             }
             catch
             {
-                Console.WriteLine("Some error with reading the file");
-                return;
+                return "Some error with reading the file";
             }
             string input = "_" + inputLine[0];
 
             List<string> rowVariants = new List<string> { input };
             Dictionary<string, (int, string, char, int)> rowVariantsData = new Dictionary<string, (int, string, char, int)>();
             rowVariantsData[input] = (0, input.Substring(1), '_', 0);
-
-            Console.WriteLine("Initial: " + rowVariantsData[input] + "\n");
 
             int ind = 0;
             while (ind < rowVariants.Count)
@@ -96,10 +93,9 @@ namespace Lab5CL
 
             ans.Reverse();
             string result = rowVariantsData["_"].Item1 + " " + string.Join(" ", ans);
-            Console.WriteLine("\nResult:");
-            Console.WriteLine(result);
             File.Delete(outputFile);
             File.WriteAllText(outputFile, result);
+            return result;
         }
     }
 }

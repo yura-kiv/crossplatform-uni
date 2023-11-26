@@ -44,16 +44,18 @@ namespace Lab5CL
             return BigInteger.Abs(sum) + 2;
         }
 
-        public void Run(string inputFile, string outputFile)
+        public string Run(string inputFile, string outputFile)
         {
             int depth = getDepthFromFile(inputFile);
-            if (depth == -1) return;
+            if (depth == -1) return "Error input information to the task!";
             Console.WriteLine("Depth: " + depth);
 
             BigInteger sum = GetSequenceSum(depth);
 
             Console.WriteLine("Sum: " + sum);
             File.WriteAllText(outputFile, sum.ToString());
+
+            return outputFile;
         }
     }
 }

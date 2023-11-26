@@ -14,20 +14,21 @@ namespace Lab5WebApp.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost]
-        public IActionResult Lab2(LabDataModel model)
+        public string Lab2(LabDataModel model)
         {
             try
             {
                 string inputPath = model.Input;
                 string outputPath = model.Output;
-                var Lab2 = new Lab2();
-                Lab2.Run(inputPath, outputPath);
-                return View(model);
+                var lab2 = new Lab2();
+                string res = lab2.Run(inputPath, outputPath);
+                return res;
             }
             catch (Exception e)
             {
-                return View(model);
+                return "Error to run Lab1 POST command....";
             }
         }
     }
