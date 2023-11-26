@@ -48,14 +48,13 @@ namespace Lab5CL
         {
             int depth = getDepthFromFile(inputFile);
             if (depth == -1) return "Error input information to the task!";
-            Console.WriteLine("Depth: " + depth);
 
             BigInteger sum = GetSequenceSum(depth);
 
             Console.WriteLine("Sum: " + sum);
             File.WriteAllText(outputFile, sum.ToString());
 
-            return outputFile;
+            return sum.ToString();
         }
     }
 }
