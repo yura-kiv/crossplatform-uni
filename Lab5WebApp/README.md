@@ -49,6 +49,8 @@
 
 Для прикладу виконаємо 2 лабораторну роботу:
 ![](./media/image16.png)
+![](./media/image17.png)
 
 Результат в через консоль лінукса:
-![](./media/image17.png)
+![](./media/image18.png)
+![](./media/image19.png)
