@@ -23,7 +23,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab5CL", "Lab5CL\Lab5CL.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab5WebApp", "Lab5WebApp\Lab5WebApp.csproj", "{236F8F8E-0050-4125-8F29-39F85097DA57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab13API", "Lab13API\Lab13API.csproj", "{0A4F21FC-0F7A-4487-AFED-F9567CE9D203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab13API", "Lab13API\Lab13API.csproj", "{0A4F21FC-0F7A-4487-AFED-F9567CE9D203}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{877933BA-A643-4542-8808-9F83127682CD}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
