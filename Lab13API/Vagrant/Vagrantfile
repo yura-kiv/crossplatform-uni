@@ -31,13 +31,11 @@ Vagrant.configure("2") do |config|
     git clone https://github.com/yura-kiv/crossplatform-uni.git
 
     cd crossplatform-uni/Lab13API
-    dotnet run
+    dotnet run &
 
-    cd ..
-
-    cd crossplatform-uni/Lab13React
+    cd ../Lab13React
     npm install
-    npm start
+    npm start &
 
     SHELL
 end
